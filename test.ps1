@@ -11,7 +11,13 @@ param ()
     ) `
 ;
 
-Import-Module 'ITG.WinAPI.UrlMon' -Force;
+Import-Module `
+	(Join-Path `
+        -Path ( ( [System.IO.FileInfo] ( $MyInvocation.MyCommand.Path ) ).Directory ) `
+        -ChildPath 'ITG.WinAPI.UrlMon' `
+    ) `
+    -Force `
+;
 
 'test\logo.jpg' `
 , 'test\logo2.jpg' `
@@ -23,3 +29,7 @@ Import-Module 'ITG.WinAPI.UrlMon' -Force;
 } `
 | Get-MIME -ErrorAction Continue `
 ;
+
+# демонстрация свойства, добавленного через types.ps1xml 
+$a = ( [System.IO.FileInfo] 'test\logo3.jpg' );
+$a.ContentType;
