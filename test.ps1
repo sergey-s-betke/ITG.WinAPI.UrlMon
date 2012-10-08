@@ -23,4 +23,3 @@ Import-Module 'ITG.WinAPI.UrlMon' -Force;
 } `
 | Get-MIME -ErrorAction Continue `
 ;
-#>
