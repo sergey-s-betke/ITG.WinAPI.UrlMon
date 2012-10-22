@@ -26,6 +26,7 @@ class API {
 [DllImport(
     "urlmon.dll"
     , CharSet=CharSet.Unicode
+    , ExactSpelling=true
     , SetLastError=false
 )]
 public
@@ -35,7 +36,7 @@ System.UInt32
 FindMimeFromData(
 	System.UInt32 pBC,
 	[In,  MarshalAs(UnmanagedType.LPWStr)] System.Text.StringBuilder pwzUrl,
-	[In,  MarshalAs(UnmanagedType.LPArray, SizeParamIndex=3)] byte[] pBuffer,
+	[In,  MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.I1, SizeParamIndex=3)] byte[] pBuffer,
 	[In,  MarshalAs(UnmanagedType.U4)] System.UInt32 cbSize,
 	[In,  MarshalAs(UnmanagedType.LPWStr)] System.Text.StringBuilder pwzMimeProposed,
 	[In,  MarshalAs(UnmanagedType.U4)] System.UInt32 dwMimeFlags,
