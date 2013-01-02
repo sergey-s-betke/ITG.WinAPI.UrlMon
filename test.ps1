@@ -17,7 +17,8 @@ Import-Module `
         -ChildPath 'ITG.WinAPI.UrlMon' `
     ) `
     -Force `
-;
+	-PassThru `
+| Get-Readme -OutDefaultFile;
 
 'test\logo.jpg' `
 , 'test\logo2.jpg' `
